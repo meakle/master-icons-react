@@ -1,0 +1,30 @@
+{
+  "name": "@meakle/react-icons",
+  "version": "0.1.0",
+  "main": "lib/lib.cjs",
+  "module": "lib/lib.js",
+  "files": [
+    "lib",
+    "*.d.ts"
+  ],
+  "type": "module",
+  "scripts": {
+    "gen": "ts-node-esm ./scripts/index.ts",
+    "dev": "yarn gen && vite",
+    "build": "yarn run gen && tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.18",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "svgo": "^3.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
+  }
+}
