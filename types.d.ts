@@ -6,7 +6,7 @@ declare global {
   }
   
   interface MasterIconMap {
-    [key: string]: React.FC<IconProps>;
+    [key: string]: React.FC<MasterIconProps>;
   }  
 }
 
