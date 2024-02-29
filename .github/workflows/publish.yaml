@@ -10,7 +10,7 @@ jobs:
           node-version: '18.16.0'
       - name: Get the version
         id: package
-        run: echo ::set-output name=version::$(node -p "require('../../packages/svg/config.json').version")
+        run: echo ::set-output name=version::$(node -p "require('./packages/svg/config.json').version")
 
   build:
     runs-on: ubuntu-latest
