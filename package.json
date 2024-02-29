@@ -9,7 +9,7 @@
   ],
   "type": "module",
   "scripts": {
-    "gen": "node ./scripts/index.js",
+    "gen": "ts-node ./scripts/index.ts",
     "dev": "yarn gen && vite",
     "build": "yarn run gen && tsc && vite build",
     "preview": "vite preview"
