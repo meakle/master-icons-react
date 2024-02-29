@@ -1,3 +1,4 @@
+import { MasterIconMap } from '../types';
 import { iconMap } from '../index';
 
 const map = iconMap as MasterIconMap;

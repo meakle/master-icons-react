@@ -11,7 +11,9 @@ const getReactExportTemplate = (svg: string, name: string) => {
   const propsHandle = svg.replace('<svg', '<svg\nstyle={ {fontSize: props.size, color: props.fill, rotate: props.rotate} }\n')
 
   const temp =
-`const ${name} = (props: MasterIconProps) => {
+`import type { MasterIconProps } from '../types.ts'
+
+const ${name} = (props: MasterIconProps) => {
   return (
     ${propsHandle}
   );
@@ -30,7 +32,6 @@ import * as iconMap from './map';
 export { iconMap };
 
 export * from './map';
-export * from './types.d';
 `;
   fs.writeFileSync(path, temp)
 }
