@@ -1,11 +1,17 @@
-name: Get Version
-  id: package
-  run: echo "::set-output name=version::$(node -p "require('../../packages/svg/config.json').version")"
-  shell: bash
-
 name: Publish Package to npmjs
 on: [push]
 jobs:
+  getVersion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@3
+        with:
+          node-version: '18.16.0'
+      - name: Get the version
+        id: package
+        run: echo ::set-output name=version::$(node -p "require('../../packages/svg/config.json').version")
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +23,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: yarn
       - run: yarn build
-      - run: yarn version ${{ steps.package.outputs.version }}
+      - run: yarn version ${{ steps.getVersion.outputs.version }}
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
