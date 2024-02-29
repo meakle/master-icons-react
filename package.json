@@ -1,6 +1,6 @@
 {
   "name": "@meakle/react-icons",
-  "version": "0.2.2",
+  "version": "0.0.0",
   "main": "lib/icons.cjs",
   "module": "lib/icons.js",
   "types": "lib/icons.d.ts",
